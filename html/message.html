@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Messaging</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/4.1.1/crypto-js.min.js"></script>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+        integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+</head>
+
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+
+        <form class="form-inline my-2 my-lg-0">
+            <ul class="navbar-nav mr-auto">
+                <li class="nav-item">
+                    <a id="user" class="nav-link" href="#">Username</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" id="signoutlink" href="#">Sign Out</a>
+                </li>
+
+            </ul>
+
+        </form>
+        </div>
+    </nav>
+    <div role="form" class="wpcf7" id="wpcf7-f419-p966-o1" lang="en-US" dir="ltr">
+        <div class="screen-reader-response"></div>
+        <!--         <form action="/my-contact-page/#wpcf7-f419-p966-o1" method="post" class="wpcf7-form ng-pristine ng-valid" novalidate="novalidate">
+ -->
+        <form method="POST" action="controller/contact.php" role="form">
+
+            <div class="messages"></div>
+
+
+            <p><label>Name<br>
+                    <span class="wpcf7-form-control-wrap your-name"><input type="text" name="name" value="" size="40"
+                            class="wpcf7-form-control wpcf7-text wpcf7-validates-as-required" aria-required="true"
+                            aria-invalid="false"></span> </label></p>
+            <p><label>Email<br>
+                    <span class="wpcf7-form-control-wrap your-email"><input type="email" name="email" value="" size="40"
+                            class="wpcf7-form-control wpcf7-text wpcf7-email wpcf7-validates-as-required wpcf7-validates-as-email"
+                            aria-required="true" aria-invalid="false"></span> </label></p>
+
+            <p><label> Subject<br>
+                    <span class="wpcf7-form-control-wrap your-subject"><input type="text" name="subject" value=""
+                            size="40" class="wpcf7-form-control wpcf7-text" aria-invalid="false"></span> </label></p>
+            <p><label>Message<br>
+                    <span class="wpcf7-form-control-wrap your-message"><textarea name="message" cols="40" rows="10"
+                            class="wpcf7-form-control wpcf7-textarea" aria-invalid="false"
+                            style="overflow: hidden; overflow-wrap: break-word; height: 400px; width: 800px;"></textarea></span>
+                </label></p>
+            <p><input type="submit" value="Send" class="btn btn-info btn-send" style="margin-left:44%;"></p>
+        </form>
+
+    </div>
+    </div>
+    </div>
+    </div>
+</body>
+
+</html>
