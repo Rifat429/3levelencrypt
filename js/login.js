@@ -21,5 +21,58 @@ const db = getDatabase();
 
 
 ////references////
-const email = document.getElementById('emailInp');
+const name = document.getElementById('nameInp')
 const password = document.getElementById('passInp');
+const submit = document.getElementById('sub_btn');
+
+////Authentciation process////
+
+function AuthenticateUser() {
+    const dbref = ref(db);
+    console.log(dbref)
+
+
+    get(child(dbref, "UsersList/" + `rifat`)).then((snapshot) => {
+        console.log(snapshot)
+        if (snapshot.exists()) {
+
+            let dbpass = decPass(snapshot.val().password);
+            console.log(dbpass);
+            if (dbpass == password.value) {
+                login();
+            }
+            else {
+                alert(`user doesn't exist`);
+            }
+        }
+        else {
+            console.log(password.value, name.value)
+            alert('username or password is invalid');
+        }
+
+    })
+
+}
+function decPass(dbpass) {
+    var pass12 = CryptoJS.AES.encrypt(password.value, password.value);
+    return pass12.toString(CryptoJS.enc.Utf8);
+}
+//////login/////
+function login(name) {
+    let keeplogin = document.getElementById("customSwitch1").checked;
+    if (!keeplogin) {
+        sessionStorage.setItem('name', JSON.stringify(name));
+        window.location = "../html/message.html"
+    }
+
+    else {
+        localStorage.setItem('keeplogin', 'yes');
+        localStorage.setItem('name', JSON.stringify(name));
+        window.location('name')
+    }
+}
+
+
+
+///assign the events///
+submit.addEventListener('click', AuthenticateUser);

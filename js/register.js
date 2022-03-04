@@ -14,7 +14,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-import { getDatabase, ref, set, child, get, }
+import { getDatabase, ref, set, child, get }
     from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
 
 const db = getDatabase();
@@ -66,9 +66,9 @@ function RegisterUser() {
         }
         else {
             set(ref(db, "UserList/" + name.value), {
-                fullanme: name.value,
+                name: name.value,
                 email: email.value,
-                password: password.value
+                password: encPass()
 
 
             })
@@ -84,6 +84,10 @@ function RegisterUser() {
 
 }
 
+function encPass() {
+    var pass12 = CryptoJS.AES.encrypt(password.value, password.value);
+    return pass12.toString();
+}
 // function RegisterUser() {
 //     auth.createUserWithEmailAndPassword(email, password)
 //         .then(function () {
