@@ -60,7 +60,7 @@ function RegisterUser() {
         return;
     }
     const dbref = ref(db);
-    get(child(dbref, "UsersList/" + name.value)).then((snapshot) => {
+    get(child(dbref, "UserList/" + name.value)).then((snapshot) => {
         if (snapshot.exists()) {
             alert("Account Already Exists!");
         }

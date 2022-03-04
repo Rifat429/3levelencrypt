@@ -14,7 +14,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 
-import { getDatabase, ref, set, child, get }
+import { getDatabase, ref, child, get }
     from "https://www.gstatic.com/firebasejs/9.6.7/firebase-database.js";
 
 const db = getDatabase();
@@ -32,8 +32,8 @@ function AuthenticateUser() {
     console.log(dbref)
 
 
-    get(child(dbref, "UsersList/" + `rifat`)).then((snapshot) => {
-        console.log(snapshot)
+    get(child(dbref, "UserList/" + name.value)).then((snapshot) => {
+        console.log(snapshot, name.value)
         if (snapshot.exists()) {
 
             let dbpass = decPass(snapshot.val().password);
@@ -54,7 +54,7 @@ function AuthenticateUser() {
 
 }
 function decPass(dbpass) {
-    var pass12 = CryptoJS.AES.encrypt(password.value, password.value);
+    var pass12 = CryptoJS.AES.decrypt(dbpass, password.value);
     return pass12.toString(CryptoJS.enc.Utf8);
 }
 //////login/////
