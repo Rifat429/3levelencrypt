@@ -62,13 +62,14 @@ function login(name) {
     let keeplogin = document.getElementById("customSwitch1").checked;
     if (!keeplogin) {
         sessionStorage.setItem('name', JSON.stringify(name));
-        window.location = "../html/message.html"
+        alert(sessionStorage)
+        window.location = "message.html"
     }
 
     else {
         localStorage.setItem('keeplogin', 'yes');
         localStorage.setItem('name', JSON.stringify(name));
-        window.location('name')
+        window.location = `message.html`
     }
 }
 
